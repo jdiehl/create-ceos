@@ -1,13 +1,16 @@
 {
-  "name": "ceos-cli",
-  "description": "command line interface for ceos",
+  "name": "create-ceos",
+  "description": "Create and extend ceos projects",
   "version": "1.0.0",
   "bin": {
-    "ceos-cli": "ceos-cli.js"
+    "ceos-cli": "create-ceos.js"
   },
-  "repository": "git@github.com:jdiehl/ceos-cli.git",
-  "author": "Jonathan Diehl <jonathan.diehl@gmail.com>",
-  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdiehl/create-ceos.git"
+  },
+  "author": "Jonathan Diehl",
+  "license": "ISC",
   "dependencies": {
     "camelcase": "^5.3.1",
     "node-plop": "^0.24.0",
