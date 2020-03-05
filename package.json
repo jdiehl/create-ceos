@@ -1,0 +1,24 @@
+{
+  "name": "ceos-cli",
+  "description": "command line interface for ceos",
+  "version": "1.0.0",
+  "bin": {
+    "ceos-cli": "ceos-cli.js"
+  },
+  "repository": "git@github.com:jdiehl/ceos-cli.git",
+  "author": "Jonathan Diehl <jonathan.diehl@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "node-plop": "^0.24.0",
+    "ora": "^4.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}

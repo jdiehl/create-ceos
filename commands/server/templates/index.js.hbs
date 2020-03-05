@@ -1,0 +1,23 @@
+require('dotenv').config()
+require('moment').locale('de')
+
+const { serve, use } = require('ceos/server')
+const extensions = require('./extensions')
+const jobs = require('./jobs')
+const pkg = require('./package.json')
+
+// install extensions
+use(extensions)
+
+// main
+async function main() {
+
+  // run jobs
+  jobs.forEach(job => job())
+
+  // start server
+  const { address, port } = await serve()
+  console.log(`${pkg.name} v${pkg.version} listening at ${address}:${port}`)
+}
+
+main().catch(err => console.error(err))

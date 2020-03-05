@@ -1,0 +1,36 @@
+const { requireAccess } = require('ceos/util')
+const { NotFoundError, ForbiddenError } = require('ceos/server')
+const { {{model}} } = require('./{{model}}')
+
+// create
+async function create{{model}}(_, { input }, context) {
+  const user = requireAccess(context)
+  return {{model}}.create({ ...input, user_id: user.id })
+}
+
+// update
+async function update{{model}}(_, { id, input }, context) {
+  const user = requireAccess(context)
+  const doc = await {{model}}.findByPk(id)
+  if (!doc) throw new NotFoundError()
+  if (doc.user_id !== user.id) throw new ForbiddenError()
+  Object.assign(doc, input)
+  await doc.save()
+  return doc
+}
+
+// remove
+async function delete{{model}}(_, { id }, context) {
+  const user = requireAccess(context)
+  const doc = await {{model}}.findByPk(id)
+  if (!doc) throw new NotFoundError()
+  if (doc.user_id !== user.id) throw new ForbiddenError()
+  await doc.destroy()
+  return true
+}
+
+module.exports = {
+  create{{model}},
+  update{{model}},
+  delete{{model}}
+}

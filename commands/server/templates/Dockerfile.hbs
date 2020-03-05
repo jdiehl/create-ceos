@@ -1,0 +1,22 @@
+FROM node:alpine
+RUN apk update && apk upgrade
+
+WORKDIR /home/node
+ENTRYPOINT node index
+HEALTHCHECK CMD wget localhost:4000/.well-known/apollo/server-health -q -O -
+EXPOSE 4000
+
+# Install packages
+ADD package.json yarn.lock ./
+RUN yarn --frozen-lockfile --prod
+
+# Copy source
+ADD index.js ./
+ADD extensions ./extensions
+
+ENV NODE_ENV=production
+ENV PORT=4000
+ENV DB=postgres://postgres@postgres/{{name}}
+ENV DB_POOL=1
+ENV JWT_EXPIRES=30d
+ENV EXTENSIONS=user

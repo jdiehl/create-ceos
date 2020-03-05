@@ -1,0 +1,26 @@
+const { {{model}} } = require('./{{model}}')
+const { Sequelize } = require('ceos/sequelize')
+const { NotFoundError, ForbiddenError } = require('ceos/server')
+const { requireAccess } = require('ceos/util')
+
+async function {{camelCase model}}(_, { id }) {
+  const doc = await {{model}}.findByPk(id)
+  if (!doc) throw new NotFoundError()
+  return doc
+}
+
+async function {{camelCase model}}s() {
+  return {{model}}.findAll()
+}
+
+async function my{{model}}s(_, args, context) {
+  const user = requireAccess(context)
+  const where = { user_id: user.id }
+  return {{model}}.findAll({ where })
+}
+
+module.exports = {
+  {{camelCase model}},
+  {{camelCase model}}s,
+  my{{model}}s
+}

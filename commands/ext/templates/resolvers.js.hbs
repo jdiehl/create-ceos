@@ -1,0 +1,20 @@
+const { Sequelize } = require('ceos/sequelize')
+const { User } = require('ceos/extensions/user')
+const { {{model}} } = require('./{{model}}')
+
+async function {{camelCase model}}s(user) {
+  const where = { user_id: user.id }
+  return Talk.findAll({ where })
+}
+
+async function user({{camelCase model}}) {
+  return User.findByPk({{camelCase model}}.user_id)
+}
+
+exports.User = {
+  {{camelCase model}}s
+}
+
+exports.{{model}} = {
+  user
+}

@@ -1,0 +1,29 @@
+const { gql } = require('ceos/server')
+
+module.exports = gql`
+type {{model}} {
+  id: Int!
+  name: String!
+  user: User!
+}
+
+input {{model}}Input {
+  name: String!
+}
+
+extend type User {
+  {{camelCase model}}s: [{{model}}]!
+}
+
+extend type Query {
+  {{camelCase model}}(id: Int!): {{model}}!
+  {{camelCase model}}s: [{{model}}]!
+  my{{model}}s: [{{model}}]!
+}
+
+extend type Mutation {
+  create{{model}}(input: {{model}}Input!): {{model}}!
+  update{{model}}(id: Int!, input: {{model}}Input!): {{model}}!
+  delete{{model}}(id: Int!): Boolean!
+}
+`
