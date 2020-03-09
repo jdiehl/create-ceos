@@ -1,7 +1,7 @@
 {
   "name": "create-ceos",
   "description": "Create and extend ceos projects",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "bin": {
     "ceos-cli": "create-ceos.js"
   },

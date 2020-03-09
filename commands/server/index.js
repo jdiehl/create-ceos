@@ -46,8 +46,9 @@ module.exports = plop => {
         templateAction(path, 'Dockerfile', { name }),
         templateAction(path, 'README.md', { name }),
         templateAction(path, 'index.js'),
-        templateAction(path, join('jobs', 'index.js')),
         templateAction(path, join('extensions', 'index.js')),
+        templateAction(path, join('jobs', 'index.js')),
+        templateAction(path, join('migrations', '.gitkeep')),
         { type: `pkg install`, packages: ['ceos'] },
         { type: `pkg install-dev`, packages: [
           'eslint',

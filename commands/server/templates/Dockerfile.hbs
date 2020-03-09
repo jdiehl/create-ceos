@@ -13,6 +13,8 @@ RUN yarn --frozen-lockfile --prod
 # Copy source
 ADD index.js ./
 ADD extensions ./extensions
+ADD jobs ./jobs
+ADD migrations ./migrations
 
 ENV NODE_ENV=production
 ENV PORT=4000
