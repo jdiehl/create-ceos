@@ -1,0 +1,13 @@
+async function up(queryInterface, Sequelize) {
+  await queryInterface.addColumn('TABLE', 'COLUMN', {
+    type: Sequelize.DataTypes.STRING,
+    allowNull: false,
+    defaultValue: ''
+  })
+}
+
+async function down(queryInterface, Sequelize) {
+  await queryInterface.removeColumn('TABLE', 'COLUMN', {})
+}
+
+module.exports = { up, down }
