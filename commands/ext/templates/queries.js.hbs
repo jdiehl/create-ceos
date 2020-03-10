@@ -1,6 +1,5 @@
 const { {{model}} } = require('./{{model}}')
-const { Sequelize } = require('ceos/sequelize')
-const { NotFoundError, ForbiddenError } = require('ceos/server')
+const { NotFoundError } = require('ceos/server')
 const { requireAccess } = require('ceos/util')
 
 async function {{camelCase model}}(_, { id }) {
