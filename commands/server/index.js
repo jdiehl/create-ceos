@@ -20,24 +20,27 @@ module.exports = plop => {
   plop.setGenerator('server', {
     description: 'Initialize a new ceos server project',
     prompts: [{
-			type: 'input',
-			name: 'name',
-			message: 'Project name',
+      type: 'input',
+      name: 'name',
+      message: 'Project name',
       validate: name => name.length > 0
     }],
     actions: ({ name }) => {
       const path = `${name}-server`
       return [
         { type: 'mkdir', path },
-        { type: `pkg init`, options: {
-          name: path,
-          private: true,
-          scripts: {
-            test: 'eslint .',
-            dev: 'nodemon --inspect index.js',
-            start: 'node index.js'
+        {
+          type: `pkg init`,
+          options: {
+            name: path,
+            private: true,
+            scripts: {
+              test: 'eslint .',
+              dev: 'nodemon --inspect index.js',
+              start: 'node index.js'
+            }
           }
-        } },
+        },
         templateAction(path, '.editorconfig'),
         templateAction(path, '.env', { name, admin_token: randomHash(), jwt_secret: randomHash() }),
         templateAction(path, '.eslintrc.js'),
@@ -50,16 +53,19 @@ module.exports = plop => {
         templateAction(path, join('jobs', 'index.js')),
         templateAction(path, join('migrations', '.gitkeep')),
         { type: `pkg install`, packages: ['ceos'] },
-        { type: `pkg install-dev`, packages: [
-          'eslint',
-          'eslint-config-standard',
-          'eslint-plugin-import',
-          'eslint-plugin-node',
-          'eslint-plugin-promise',
-          'eslint-plugin-standard',
-          'nodemon',
-          'dotenv'
-        ] },
+        {
+          type: `pkg install-dev`,
+          packages: [
+            'eslint',
+            'eslint-config-standard',
+            'eslint-plugin-import',
+            'eslint-plugin-node',
+            'eslint-plugin-promise',
+            'eslint-plugin-standard',
+            'nodemon',
+            'dotenv'
+          ]
+        },
         { type: 'git init' },
         { type: 'git add all' },
         { type: 'git commit', message: 'Initial import' }

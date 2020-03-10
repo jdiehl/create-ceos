@@ -17,7 +17,7 @@ async function main() {
 
   // start server
   const { address, port } = await serve()
-  console.log(`${pkg.name} v${pkg.version} listening at ${address}:${port}`)
+  console.info(`${pkg.name} v${pkg.version} listening at ${address}:${port}`)
 }
 
 main().catch(err => console.error(err))

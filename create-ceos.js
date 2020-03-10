@@ -9,7 +9,7 @@ const plop = nodePlop(join(__dirname, 'plopfile.js'), { destBasePath: process.cw
 const generators = plop.getGeneratorList().map(g => g.name)
 
 if (!cmd || !generators.includes(cmd)) {
-  console.log(`  Usage: ceos-cli [${generators.join('|')}]`)
+  console.info(`  Usage: ceos-cli [${generators.join('|')}]`)
   process.exit(2)
 }
 

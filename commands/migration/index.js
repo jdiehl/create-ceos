@@ -4,7 +4,7 @@ const { join, extname } = require('path')
 function templateAction(path, filename, data = {}, newName) {
   return {
     type: 'add',
-    path: join(process.cwd(), path, newName ? newName : filename),
+    path: join(process.cwd(), path, newName || filename),
     templateFile: join(__dirname, 'templates', `${filename}.hbs`),
     skipIfExists: true,
     data
@@ -16,11 +16,11 @@ module.exports = plop => {
     description: 'Create a migration',
     prompts: [
       {
-      type: 'input',
-      name: 'name',
-      message: 'Migration name',
-      validate: name => name.length > 0
-    }],
+        type: 'input',
+        name: 'name',
+        message: 'Migration name',
+        validate: name => name.length > 0
+      }],
     actions: ({ name }) => {
       const files = readdirSync('migrations').filter(file => extname(file) === '.js').sort()
       const id = (parseInt(files.lastItem, 10) || 0) + 1

@@ -9,6 +9,9 @@
     "type": "git",
     "url": "https://github.com/jdiehl/create-ceos.git"
   },
+  "scripts": {
+    "test": "eslint ."
+  },
   "author": "Jonathan Diehl",
   "license": "ISC",
   "dependencies": {
