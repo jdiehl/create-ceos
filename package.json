@@ -1,7 +1,7 @@
 {
   "name": "create-ceos",
   "description": "Create and extend ceos projects",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "bin": {
     "ceos-cli": "create-ceos.js"
   },
@@ -15,16 +15,11 @@
   "author": "Jonathan Diehl",
   "license": "ISC",
   "dependencies": {
-    "camelcase": "^5.3.1",
-    "node-plop": "^0.24.0",
-    "ora": "^4.0.3"
+    "camelcase": "^6.0.0",
+    "node-plop": "^0.26.0",
+    "ora": "^4.0.4"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
+    "eslint": "^7.1.0"
   }
 }

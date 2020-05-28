@@ -57,11 +57,6 @@ module.exports = plop => {
           type: `pkg install-dev`,
           packages: [
             'eslint',
-            'eslint-config-standard',
-            'eslint-plugin-import',
-            'eslint-plugin-node',
-            'eslint-plugin-promise',
-            'eslint-plugin-standard',
             'nodemon',
             'dotenv'
           ]
